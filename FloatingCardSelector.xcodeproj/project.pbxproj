@@ -9,23 +9,43 @@
 /* Begin PBXBuildFile section */
 		B5F37EEA261A1F3F0010A706 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37EE9261A1F3F0010A706 /* AppDelegate.swift */; };
 		B5F37EEC261A1F3F0010A706 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37EEB261A1F3F0010A706 /* SceneDelegate.swift */; };
-		B5F37EEE261A1F3F0010A706 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37EED261A1F3F0010A706 /* ViewController.swift */; };
-		B5F37EF1261A1F3F0010A706 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F37EEF261A1F3F0010A706 /* Main.storyboard */; };
+		B5F37EEE261A1F3F0010A706 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37EED261A1F3F0010A706 /* ExampleViewController.swift */; };
 		B5F37EF3261A1F400010A706 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F37EF2261A1F400010A706 /* Assets.xcassets */; };
 		B5F37EF6261A1F400010A706 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F37EF4261A1F400010A706 /* LaunchScreen.storyboard */; };
 		B5F37F03261A1FEF0010A706 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B5F37F02261A1FEF0010A706 /* .gitignore */; };
+		B5F37F0B261A21BD0010A706 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37F0A261A21BD0010A706 /* CardViewController.swift */; };
+		B5F37F0E261A21F70010A706 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37F0D261A21F70010A706 /* CardView.swift */; };
+		B5F37F12261A245E0010A706 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37F11261A245E0010A706 /* UIView+Ext.swift */; };
+		B5F37F1B261A25180010A706 /* EventPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37F15261A25170010A706 /* EventPublisher.swift */; };
+		B5F37F1C261A25180010A706 /* GestureSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37F17261A25180010A706 /* GestureSubscription.swift */; };
+		B5F37F1D261A25180010A706 /* GestureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37F18261A25180010A706 /* GestureType.swift */; };
+		B5F37F1E261A25180010A706 /* UIViewGesture+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37F19261A25180010A706 /* UIViewGesture+Ext.swift */; };
+		B5F37F1F261A25180010A706 /* GesturePublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37F1A261A25180010A706 /* GesturePublisher.swift */; };
+		B5F37F24261A2C3F0010A706 /* GestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37F23261A2C3F0010A706 /* GestureHandler.swift */; };
+		B5F37F27261A4A450010A706 /* CardAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37F26261A4A450010A706 /* CardAnimation.swift */; };
+		B5F37F2A261A4AF50010A706 /* CardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37F29261A4AF50010A706 /* CardState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B5F37EE6261A1F3F0010A706 /* FloatingCardSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloatingCardSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F37EE9261A1F3F0010A706 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5F37EEB261A1F3F0010A706 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B5F37EED261A1F3F0010A706 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B5F37EF0261A1F3F0010A706 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B5F37EED261A1F3F0010A706 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		B5F37EF2261A1F400010A706 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5F37EF5261A1F400010A706 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5F37EF7261A1F400010A706 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5F37F02261A1FEF0010A706 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B5F37F0A261A21BD0010A706 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		B5F37F0D261A21F70010A706 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		B5F37F11261A245E0010A706 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		B5F37F15261A25170010A706 /* EventPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPublisher.swift; sourceTree = "<group>"; };
+		B5F37F17261A25180010A706 /* GestureSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureSubscription.swift; sourceTree = "<group>"; };
+		B5F37F18261A25180010A706 /* GestureType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureType.swift; sourceTree = "<group>"; };
+		B5F37F19261A25180010A706 /* UIViewGesture+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewGesture+Ext.swift"; sourceTree = "<group>"; };
+		B5F37F1A261A25180010A706 /* GesturePublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GesturePublisher.swift; sourceTree = "<group>"; };
+		B5F37F23261A2C3F0010A706 /* GestureHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureHandler.swift; sourceTree = "<group>"; };
+		B5F37F26261A4A450010A706 /* CardAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAnimation.swift; sourceTree = "<group>"; };
+		B5F37F29261A4AF50010A706 /* CardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,13 +81,55 @@
 			children = (
 				B5F37EE9261A1F3F0010A706 /* AppDelegate.swift */,
 				B5F37EEB261A1F3F0010A706 /* SceneDelegate.swift */,
-				B5F37EED261A1F3F0010A706 /* ViewController.swift */,
-				B5F37EEF261A1F3F0010A706 /* Main.storyboard */,
+				B5F37EED261A1F3F0010A706 /* ExampleViewController.swift */,
+				B5F37F07261A20B00010A706 /* FloatingCard */,
+				B5F37F10261A24360010A706 /* Extensions */,
 				B5F37EF2261A1F400010A706 /* Assets.xcassets */,
 				B5F37EF4261A1F400010A706 /* LaunchScreen.storyboard */,
 				B5F37EF7261A1F400010A706 /* Info.plist */,
 			);
 			path = FloatingCardSelector;
+			sourceTree = "<group>";
+		};
+		B5F37F07261A20B00010A706 /* FloatingCard */ = {
+			isa = PBXGroup;
+			children = (
+				B5F37F0A261A21BD0010A706 /* CardViewController.swift */,
+				B5F37F0D261A21F70010A706 /* CardView.swift */,
+				B5F37F23261A2C3F0010A706 /* GestureHandler.swift */,
+				B5F37F26261A4A450010A706 /* CardAnimation.swift */,
+				B5F37F29261A4AF50010A706 /* CardState.swift */,
+			);
+			path = FloatingCard;
+			sourceTree = "<group>";
+		};
+		B5F37F10261A24360010A706 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5F37F11261A245E0010A706 /* UIView+Ext.swift */,
+				B5F37F14261A25170010A706 /* UIControl+Combine */,
+				B5F37F16261A25170010A706 /* UIViewGestures+Combine */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B5F37F14261A25170010A706 /* UIControl+Combine */ = {
+			isa = PBXGroup;
+			children = (
+				B5F37F15261A25170010A706 /* EventPublisher.swift */,
+			);
+			path = "UIControl+Combine";
+			sourceTree = "<group>";
+		};
+		B5F37F16261A25170010A706 /* UIViewGestures+Combine */ = {
+			isa = PBXGroup;
+			children = (
+				B5F37F17261A25180010A706 /* GestureSubscription.swift */,
+				B5F37F18261A25180010A706 /* GestureType.swift */,
+				B5F37F19261A25180010A706 /* UIViewGesture+Ext.swift */,
+				B5F37F1A261A25180010A706 /* GesturePublisher.swift */,
+			);
+			path = "UIViewGestures+Combine";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +192,6 @@
 				B5F37F03261A1FEF0010A706 /* .gitignore in Resources */,
 				B5F37EF6261A1F400010A706 /* LaunchScreen.storyboard in Resources */,
 				B5F37EF3261A1F400010A706 /* Assets.xcassets in Resources */,
-				B5F37EF1261A1F3F0010A706 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,23 +202,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5F37EEE261A1F3F0010A706 /* ViewController.swift in Sources */,
+				B5F37F1E261A25180010A706 /* UIViewGesture+Ext.swift in Sources */,
+				B5F37F1C261A25180010A706 /* GestureSubscription.swift in Sources */,
+				B5F37F1B261A25180010A706 /* EventPublisher.swift in Sources */,
+				B5F37EEE261A1F3F0010A706 /* ExampleViewController.swift in Sources */,
 				B5F37EEA261A1F3F0010A706 /* AppDelegate.swift in Sources */,
+				B5F37F2A261A4AF50010A706 /* CardState.swift in Sources */,
+				B5F37F12261A245E0010A706 /* UIView+Ext.swift in Sources */,
+				B5F37F1D261A25180010A706 /* GestureType.swift in Sources */,
+				B5F37F27261A4A450010A706 /* CardAnimation.swift in Sources */,
+				B5F37F1F261A25180010A706 /* GesturePublisher.swift in Sources */,
+				B5F37F24261A2C3F0010A706 /* GestureHandler.swift in Sources */,
+				B5F37F0B261A21BD0010A706 /* CardViewController.swift in Sources */,
 				B5F37EEC261A1F3F0010A706 /* SceneDelegate.swift in Sources */,
+				B5F37F0E261A21F70010A706 /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B5F37EEF261A1F3F0010A706 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B5F37EF0261A1F3F0010A706 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B5F37EF4261A1F400010A706 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
