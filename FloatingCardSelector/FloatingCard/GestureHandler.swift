@@ -19,6 +19,7 @@ final class GestureHandler: NSObject {
     private var runningAnimations = [UIViewPropertyAnimator]()
     private var animationProgressWhenInterrupted: CGFloat = 0
     private var lastProgress: CGFloat = 0
+    private let closeProgress: CGFloat = 0.3
     
     
     private var cardVisible = false
@@ -44,12 +45,12 @@ final class GestureHandler: NSObject {
                 updateInteractiveTransition(with: progress)
                 print("Changed \(progress)")
             case .ended:
-                if (lastProgress < 0.3) {
+                print("last progress \(lastProgress)")
+                if (lastProgress < closeProgress) {
                     stopAndGoToStartPositionInteractiveTransition()
                 } else {
                     continueInteractiveTransition()
                 }
-                lastProgress = 0
                 print("Ended")
     
             default:
@@ -80,7 +81,7 @@ final class GestureHandler: NSObject {
             self.cardVisible = !self.cardVisible
             self.runningAnimations.removeAll()
             completion?()
-            if self.cardVisible == false {
+            if self.cardVisible == false && self.lastProgress >= self.closeProgress {
                 self.onCardClose?()
             }
         }
