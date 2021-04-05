@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5005EEE261B7BD400399E6B /* CardTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5005EED261B7BD400399E6B /* CardTableCell.swift */; };
+		B5005EF2261B832900399E6B /* CardFilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5005EF1261B832900399E6B /* CardFilterItem.swift */; };
+		B5005EF6261B85E000399E6B /* FilterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5005EF5261B85E000399E6B /* FilterCardView.swift */; };
+		B5005EF9261B878D00399E6B /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5005EF8261B878D00399E6B /* ReuseIdentifiable.swift */; };
+		B5005EFD261BA2FE00399E6B /* FilterOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5005EFC261BA2FE00399E6B /* FilterOption.swift */; };
 		B5F37EEA261A1F3F0010A706 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37EE9261A1F3F0010A706 /* AppDelegate.swift */; };
 		B5F37EEC261A1F3F0010A706 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37EEB261A1F3F0010A706 /* SceneDelegate.swift */; };
 		B5F37EEE261A1F3F0010A706 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37EED261A1F3F0010A706 /* ExampleViewController.swift */; };
@@ -27,6 +32,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5005EED261B7BD400399E6B /* CardTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableCell.swift; sourceTree = "<group>"; };
+		B5005EF1261B832900399E6B /* CardFilterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFilterItem.swift; sourceTree = "<group>"; };
+		B5005EF5261B85E000399E6B /* FilterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCardView.swift; sourceTree = "<group>"; };
+		B5005EF8261B878D00399E6B /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
+		B5005EFC261BA2FE00399E6B /* FilterOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOption.swift; sourceTree = "<group>"; };
 		B5F37EE6261A1F3F0010A706 /* FloatingCardSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloatingCardSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F37EE9261A1F3F0010A706 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5F37EEB261A1F3F0010A706 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +69,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5005EF4261B85A100399E6B /* FilterTableView */ = {
+			isa = PBXGroup;
+			children = (
+				B5005EF5261B85E000399E6B /* FilterCardView.swift */,
+				B5005EED261B7BD400399E6B /* CardTableCell.swift */,
+				B5005EF1261B832900399E6B /* CardFilterItem.swift */,
+				B5005EF8261B878D00399E6B /* ReuseIdentifiable.swift */,
+			);
+			path = FilterTableView;
+			sourceTree = "<group>";
+		};
 		B5F37EDD261A1F3F0010A706 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +102,7 @@
 			children = (
 				B5F37EE9261A1F3F0010A706 /* AppDelegate.swift */,
 				B5F37EEB261A1F3F0010A706 /* SceneDelegate.swift */,
+				B5005EFC261BA2FE00399E6B /* FilterOption.swift */,
 				B5F37EED261A1F3F0010A706 /* ExampleViewController.swift */,
 				B5F37F07261A20B00010A706 /* FloatingCard */,
 				B5F37F10261A24360010A706 /* Extensions */,
@@ -99,6 +121,7 @@
 				B5F37F23261A2C3F0010A706 /* GestureHandler.swift */,
 				B5F37F26261A4A450010A706 /* CardAnimation.swift */,
 				B5F37F29261A4AF50010A706 /* CardState.swift */,
+				B5005EF4261B85A100399E6B /* FilterTableView */,
 			);
 			path = FloatingCard;
 			sourceTree = "<group>";
@@ -203,8 +226,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5F37F1E261A25180010A706 /* UIViewGesture+Ext.swift in Sources */,
+				B5005EF6261B85E000399E6B /* FilterCardView.swift in Sources */,
 				B5F37F1C261A25180010A706 /* GestureSubscription.swift in Sources */,
 				B5F37F1B261A25180010A706 /* EventPublisher.swift in Sources */,
+				B5005EF9261B878D00399E6B /* ReuseIdentifiable.swift in Sources */,
+				B5005EFD261BA2FE00399E6B /* FilterOption.swift in Sources */,
 				B5F37EEE261A1F3F0010A706 /* ExampleViewController.swift in Sources */,
 				B5F37EEA261A1F3F0010A706 /* AppDelegate.swift in Sources */,
 				B5F37F2A261A4AF50010A706 /* CardState.swift in Sources */,
@@ -212,9 +238,11 @@
 				B5F37F1D261A25180010A706 /* GestureType.swift in Sources */,
 				B5F37F27261A4A450010A706 /* CardAnimation.swift in Sources */,
 				B5F37F1F261A25180010A706 /* GesturePublisher.swift in Sources */,
+				B5005EEE261B7BD400399E6B /* CardTableCell.swift in Sources */,
 				B5F37F24261A2C3F0010A706 /* GestureHandler.swift in Sources */,
 				B5F37F0B261A21BD0010A706 /* CardViewController.swift in Sources */,
 				B5F37EEC261A1F3F0010A706 /* SceneDelegate.swift in Sources */,
+				B5005EF2261B832900399E6B /* CardFilterItem.swift in Sources */,
 				B5F37F0E261A21F70010A706 /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

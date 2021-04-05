@@ -13,13 +13,18 @@ final class GestureHandler: NSObject {
         case Up, Down
     }
     
-    var animations = [CardAnimation]()
-    var onCardClose: (() -> ())?
+    var isInteractionsEnabled = true
     
+    var onCardClose: (() -> ())?
+    var cardHeight: CGFloat = 300
+    var animationDuration: TimeInterval = 0.5
+    var animationDampingRatio: CGFloat = 0.9
+    
+    private var animations = [CardAnimation]()
     private var runningAnimations = [UIViewPropertyAnimator]()
     private var animationProgressWhenInterrupted: CGFloat = 0
     private var lastProgress: CGFloat = 0
-    private let closeProgress: CGFloat = 0.3
+    private let closeProgress: CGFloat = 0.2
     
     
     private var cardVisible = false
@@ -32,18 +37,27 @@ final class GestureHandler: NSObject {
     }
     
     
+    func addAnimation(_ animation: CardAnimation) {
+        animations.append(animation)
+    }
+    
+    
     @objc func handleCardPan(recogniser: UIPanGestureRecognizer) {
+        if isInteractionsEnabled == false {
+            return
+        }
+        
         switch recogniser.state {
             case .began:
-                let direction = getVerticalPanDirection(for: recogniser)
+//                let direction = getVerticalPanDirection(for: recogniser)
                 startInteractiveTransition(forState: nextCardState, duration: 1)
                 print("Began")
             case .changed:
                 let translation = recogniser.translation(in: recogniser.view)
-                let progress = translation.y / 300
+                let progress = translation.y / cardHeight
                 lastProgress = progress
                 updateInteractiveTransition(with: progress)
-                print("Changed \(progress)")
+//                print("Changed \(progress)")
             case .ended:
                 print("last progress \(lastProgress)")
                 if (lastProgress < closeProgress) {
@@ -65,11 +79,13 @@ final class GestureHandler: NSObject {
     }
     
     
-    func animateTransitionIfNeeded (with state: CardState, for duration: TimeInterval, withDampingRatio dampingRatio: CGFloat, completion: (() -> ())? = nil) {
+    func animateTransitionIfNeeded (with state: CardState, duration: TimeInterval? = nil, completion: (() -> ())? = nil) {
+        
+        let duration = duration ?? animationDuration
         
         animations.forEach { animation in
             let animator = UIViewPropertyAnimator(duration: duration,
-                                                  dampingRatio: dampingRatio,
+                                                  dampingRatio: animationDampingRatio,
                                                   animations: animation.getAnimation(for: state))
             animator.startAnimation()
             runningAnimations.append(animator)
@@ -81,6 +97,8 @@ final class GestureHandler: NSObject {
             self.cardVisible = !self.cardVisible
             self.runningAnimations.removeAll()
             completion?()
+            
+            print("CardVisible = \(self.cardVisible)    LastProgress = \(self.lastProgress)")
             if self.cardVisible == false && self.lastProgress >= self.closeProgress {
                 self.onCardClose?()
             }
@@ -95,7 +113,7 @@ final class GestureHandler: NSObject {
     */
     private func startInteractiveTransition (forState state: CardState, duration: TimeInterval) {
         if runningAnimations.isEmpty {
-            animateTransitionIfNeeded(with: state, for: duration, withDampingRatio: 0.8)
+            animateTransitionIfNeeded(with: state)
         }
 
         for animator in runningAnimations {
@@ -133,8 +151,7 @@ final class GestureHandler: NSObject {
             animator.finishAnimation(at: .current)
         }
         self.runningAnimations.removeAll()
-//        cardVisible = !cardVisible
-        animateTransitionIfNeeded(with: nextCardState, for: 0, withDampingRatio: 1)
+        animateTransitionIfNeeded(with: nextCardState, duration: 0)
 
     }
     
@@ -144,6 +161,7 @@ final class GestureHandler: NSObject {
 extension GestureHandler: UIGestureRecognizerDelegate  {
 //    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {}
 //    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {}
+    
     // Enable multiple gesture recognition
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return !(gestureRecognizer is UIPanGestureRecognizer)

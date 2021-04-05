@@ -8,6 +8,12 @@
 import UIKit
 import Combine
 
+enum TestEnum {
+    case first
+    case second
+    case third
+}
+
 class ExampleViewController: UIViewController {
 
     private var subscriptions = Set<AnyCancellable>()
@@ -26,9 +32,19 @@ class ExampleViewController: UIViewController {
         openCardButton.centerX(withView: view)
         openCardButton.centerY(withView: view)
         
+        
+        
         openCardButton.tapPublisher
             .sink { [weak self] _ in
-                let cardVC = CardViewController()
+                let filterView = FilterCardView(title: "Select filter option:",
+                                                items: [CardFilterItem(value: TestEnum.first, image: #imageLiteral(resourceName: "timeicon-light"), filterName: "first item"),
+                                                        CardFilterItem(value: TestEnum.second, image: #imageLiteral(resourceName: "timeicon-light"), filterName: "second item"),
+                                                        CardFilterItem(value: TestEnum.third, image: #imageLiteral(resourceName: "timeicon-light"), filterName: "third item")])
+                let cardVC = CardViewController(innerView: filterView)
+                cardVC.cardHeight = 250
+                
+                filterView.delegate = self
+                
                 cardVC.modalPresentationStyle = .overFullScreen
                 self?.present(cardVC, animated: false, completion: nil)
             }
@@ -36,5 +52,11 @@ class ExampleViewController: UIViewController {
     }
 
 
+}
+
+extension ExampleViewController: FilterItemSelectedDelegate {
+    func selectedItem(item: CardFilterItem<AnyHashable>) {
+        print("Item selected: \(item.value)")
+    }
 }
 
