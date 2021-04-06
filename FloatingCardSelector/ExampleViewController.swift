@@ -56,7 +56,7 @@ class ExampleViewController: UIViewController {
 
 extension ExampleViewController: FilterItemSelectedDelegate {
     func selectedItem(item: CardFilterItem<AnyHashable>) {
-        print("Item selected: \(item.value)")
+        print("DEBUG: Item selected: \(item.value)")
     }
 }
 

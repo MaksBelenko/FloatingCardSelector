@@ -11,8 +11,10 @@ protocol FilterItemSelectedDelegate: AnyObject {
     func selectedItem(item: CardFilterItem<AnyHashable>)
 }
 
-final class FilterCardView: UIView {
+
+final class FilterCardView: UIView, CardClosable {
     
+    weak var closeCardDelegate: CardCloseDelegate?
     weak var delegate: FilterItemSelectedDelegate?
     
     private let cellHeight: CGFloat = 50
@@ -91,7 +93,10 @@ extension FilterCardView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
         let selectedItem = items[indexPath.row]
         delegate?.selectedItem(item: selectedItem)
+
+        closeCardDelegate?.closeCard()
     }
 }

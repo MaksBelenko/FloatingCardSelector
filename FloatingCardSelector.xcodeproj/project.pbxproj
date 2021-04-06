@@ -12,6 +12,7 @@
 		B5005EF6261B85E000399E6B /* FilterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5005EF5261B85E000399E6B /* FilterCardView.swift */; };
 		B5005EF9261B878D00399E6B /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5005EF8261B878D00399E6B /* ReuseIdentifiable.swift */; };
 		B5005EFD261BA2FE00399E6B /* FilterOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5005EFC261BA2FE00399E6B /* FilterOption.swift */; };
+		B5005F01261BBADA00399E6B /* CardClosable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5005F00261BBADA00399E6B /* CardClosable.swift */; };
 		B5F37EEA261A1F3F0010A706 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37EE9261A1F3F0010A706 /* AppDelegate.swift */; };
 		B5F37EEC261A1F3F0010A706 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37EEB261A1F3F0010A706 /* SceneDelegate.swift */; };
 		B5F37EEE261A1F3F0010A706 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F37EED261A1F3F0010A706 /* ExampleViewController.swift */; };
@@ -37,6 +38,7 @@
 		B5005EF5261B85E000399E6B /* FilterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCardView.swift; sourceTree = "<group>"; };
 		B5005EF8261B878D00399E6B /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		B5005EFC261BA2FE00399E6B /* FilterOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOption.swift; sourceTree = "<group>"; };
+		B5005F00261BBADA00399E6B /* CardClosable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardClosable.swift; sourceTree = "<group>"; };
 		B5F37EE6261A1F3F0010A706 /* FloatingCardSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloatingCardSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F37EE9261A1F3F0010A706 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5F37EEB261A1F3F0010A706 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				B5F37F23261A2C3F0010A706 /* GestureHandler.swift */,
 				B5F37F26261A4A450010A706 /* CardAnimation.swift */,
 				B5F37F29261A4AF50010A706 /* CardState.swift */,
+				B5005F00261BBADA00399E6B /* CardClosable.swift */,
 				B5005EF4261B85A100399E6B /* FilterTableView */,
 			);
 			path = FloatingCard;
@@ -234,6 +237,7 @@
 				B5F37EEE261A1F3F0010A706 /* ExampleViewController.swift in Sources */,
 				B5F37EEA261A1F3F0010A706 /* AppDelegate.swift in Sources */,
 				B5F37F2A261A4AF50010A706 /* CardState.swift in Sources */,
+				B5005F01261BBADA00399E6B /* CardClosable.swift in Sources */,
 				B5F37F12261A245E0010A706 /* UIView+Ext.swift in Sources */,
 				B5F37F1D261A25180010A706 /* GestureType.swift in Sources */,
 				B5F37F27261A4A450010A706 /* CardAnimation.swift in Sources */,

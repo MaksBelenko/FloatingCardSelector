@@ -19,7 +19,7 @@ final class CardViewController: UIViewController {
     private let animationDuration: TimeInterval = 0.3
     private let gestureHandler = GestureHandler()
     
-    private let innerView: UIView
+    private let innerView: CardClosable
     
     private lazy var cardView: CardView = {
         let view = CardView(innerView: innerView)
@@ -30,15 +30,20 @@ final class CardViewController: UIViewController {
     }()
     
     // larger view for grabbing using pan gesture
-    let grabBackgroundHandleView: UIView = {
+    private let grabBackgroundHandleView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
         return view
     }()
     
+    private let closeArea: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     // MARK: - Lifecycle
     
-    init(innerView: UIView) {
+    init(innerView: CardClosable) {
         self.innerView = innerView
         super.init(nibName: nil, bundle: nil)
     }
@@ -49,6 +54,8 @@ final class CardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        innerView.closeCardDelegate = self
         
         view.backgroundColor = UIColor.black.withAlphaComponent(0)
         
@@ -71,7 +78,17 @@ final class CardViewController: UIViewController {
     // MARK: - UI Configuration
     private func configureUI() {
         view.addSubview(cardView)
-        cardView.anchor(top: view.topAnchor, paddingTop: view.frame.height - cardHeight, leading: view.leadingAnchor, trailing: view.trailingAnchor, height: cardHeight)
+        cardView.anchor(top: view.topAnchor,
+                        paddingTop: view.frame.height - cardHeight,
+                        leading: view.leadingAnchor,
+                        trailing: view.trailingAnchor,
+                        height: cardHeight)
+        
+        view.addSubview(closeArea)
+        closeArea.anchor(top: view.topAnchor,
+                         leading: view.leadingAnchor,
+                         bottom: cardView.topAnchor,
+                         trailing: view.trailingAnchor)
         
         setupCardHandle()
     }
@@ -92,6 +109,7 @@ final class CardViewController: UIViewController {
     }
     
     
+    // MARK: - Animations
     private func setupCardAnimations() {
         let cardMovementAnimation = CardAnimation(openAnimation: { [weak self] in
             guard let self = self else { return }
@@ -132,15 +150,13 @@ final class CardViewController: UIViewController {
     // MARK: - Gestures
     private func configureGestures() {
         let backgroundViewTap = UITapGestureRecognizer(target: self, action: #selector(backgroundViewTapped))
-        view.addGestureRecognizer(backgroundViewTap)
-        backgroundViewTap.cancelsTouchesInView = false
+        closeArea.addGestureRecognizer(backgroundViewTap)
+//        backgroundViewTap.cancelsTouchesInView = false
         
-//        let longBackgroundTap = UILongPressGestureRecognizer(target: self, action: #selector(backgroundViewTapped))
-//        view.addGestureRecognizer(longBackgroundTap)
-//        longBackgroundTap.cancelsTouchesInView = false
-        
-        cardView.addGestureRecognizer(setPanGestureRecognizer())
+        let cardPan = setPanGestureRecognizer()
+        cardView.addGestureRecognizer(cardPan)
         grabBackgroundHandleView.addGestureRecognizer(setPanGestureRecognizer())
+        cardPan.cancelsTouchesInView = false
     }
     
     private func setPanGestureRecognizer() -> UIPanGestureRecognizer {
@@ -153,14 +169,7 @@ final class CardViewController: UIViewController {
     }
     
     @objc private func backgroundViewTapped(_ sender: UITapGestureRecognizer) {
-        UIView.animate(withDuration: animationDuration) {
-            self.view.backgroundColor = UIColor.black.withAlphaComponent(0)
-        } completion: { _ in
-            self.dismiss(animated: false, completion: nil)
-        }
-        
-        gestureHandler.isInteractionsEnabled = false
-        gestureHandler.animateTransitionIfNeeded(with: .closed)
+        forceCloseCard()
     }
     
     // MARK: - Animations
@@ -174,9 +183,28 @@ final class CardViewController: UIViewController {
         cardView.frame.origin.y = view.frame.height
         grabBackgroundHandleView.frame.origin.y = view.frame.height - grabBackgroundHandleView.frame.height
         
+        forceOpenCard()
+    }
+    
+    // MARK: - Force card actions
+    private func forceOpenCard() {
         gestureHandler.isInteractionsEnabled = false
         gestureHandler.animateTransitionIfNeeded(with: .opened) { [gestureHandler] in
             gestureHandler.isInteractionsEnabled = true
         }
+    }
+    
+    private func forceCloseCard() {
+        gestureHandler.isInteractionsEnabled = false
+        gestureHandler.animateTransitionIfNeeded(with: .closed) { [weak self] in
+            self?.dismiss(animated: false, completion: nil)
+        }
+    }
+}
+
+// MARK: - CloseCardDelegate
+extension CardViewController: CardCloseDelegate {
+    func closeCard() {
+        forceCloseCard()
     }
 }
